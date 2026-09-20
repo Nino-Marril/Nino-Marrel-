@@ -254,6 +254,44 @@
   }
   .chip.accent{ border-color:var(--accent); color:var(--accent); }
 
+/* ---------- PAGE 3: NETWORKING & SYSTEMS ---------- */
+/* 2x2 grid of coursework cards, each holding a chip-list of specific skills */
+.course-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap:clamp(10px,1.6vw,18px);
+  flex:1; min-height:0;
+}
+.course-card{
+  border:1px solid var(--line-dim);
+  background:var(--ink-soft);
+  padding:clamp(12px,1.6vw,18px);
+  display:flex; flex-direction:column;
+  min-height:0;
+}
+.course-card .tag{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+  color:var(--accent); margin-bottom:6px;
+}
+.course-card h3{
+  font-size:clamp(14px,1.7vw,16px);
+  color:var(--paper); font-weight:600; margin-bottom:8px;
+  line-height:1.2;
+}
+.course-card ul{
+  list-style:none;
+  display:flex; flex-wrap:wrap; gap:5px;
+  overflow:hidden;
+}
+.course-card li{
+  font-family:var(--mono); font-size:10px;
+  border:1px solid var(--line-dim);
+  color:var(--text-dim);
+  padding:2px 7px;
+  border-radius:2px;
+}
+
   /* ---------- PAGE 3: TECH STACK ---------- */
   /* Grid of icon tiles — 5 across so ten icons fit one screen */
   .icon-grid{
