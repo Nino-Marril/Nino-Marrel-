@@ -1,5 +1,4 @@
-
-  /* Color, font, and spacing tokens used throughout the page */
+/* Color, font, and spacing tokens used throughout the page */
   :root{
     --ink:#12213B;
     --ink-soft:#1B2C4A;
@@ -88,18 +87,19 @@
     gap:clamp(24px,5vw,64px);
     align-items:center;
   }
-  /* Circular "NL" initials avatar, standing in for a real photo */
+  /* Circular photo frame on the cover page, with a dashed blueprint ring around it */
+  /* Photo fills the circle exactly */
+  .monogram img{
+    width:100%; height:100%;
+    object-fit:cover;
+    border-radius:50%;
+  }
   .monogram{
     width:clamp(96px,14vw,168px);
     height:clamp(96px,14vw,168px);
     border-radius:50%;
     border:1.5px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--mono); font-weight:600;
-    font-size:clamp(30px,5vw,48px);
-    color:var(--paper);
-    background:
-      repeating-linear-gradient(135deg, transparent 0 10px, var(--line-dim) 10px 11px);
+    overflow:hidden;
     flex-shrink:0;
     position:relative;
   }
@@ -170,39 +170,39 @@
   }
   .title-block p{ color:var(--text-dim); font-size:14px; margin-top:6px; max-width:60ch;}
 
-  /* 2x2 grid of skill cards, sized to fit one screen with no scrolling */
+  /* 2-column row of project cards, one per completed repo */
   .work-grid{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap:clamp(12px,2vw,20px);
+    gap:clamp(16px,2.5vw,28px);
     flex:1;
     min-height:0;
   }
   .work-card{
     border:1px solid var(--line-dim);
     background:var(--ink-soft);
-    padding:clamp(14px,1.8vw,20px);
+    padding:clamp(18px,2.4vw,26px);
     display:flex; flex-direction:column;
     min-height:0;
     position:relative;
   }
   .work-card .tag{
-    font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
-    color:var(--accent); margin-bottom:6px;
+    font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+    color:var(--accent); margin-bottom:10px;
   }
   .work-card h3{
-    font-size:clamp(15px,1.9vw,18px);
-    color:var(--paper); font-weight:600; margin-bottom:5px;
+    font-size:clamp(17px,2.1vw,21px);
+    color:var(--paper); font-weight:600; margin-bottom:8px;
     line-height:1.2;
   }
   .work-card p{
-    font-size:12.5px; color:var(--text-dim); line-height:1.42;
-    margin-bottom:8px;
+    font-size:13.5px; color:var(--text-dim); line-height:1.5;
+    margin-bottom:12px;
   }
   .work-card ul{
-    list-style:none; margin-top:auto;
+    list-style:none;
     display:flex; flex-wrap:wrap; gap:6px;
+    margin-bottom:14px;
   }
   .work-card li{
     font-family:var(--mono); font-size:10.5px;
@@ -211,6 +211,14 @@
     padding:3px 8px;
     border-radius:2px;
   }
+  /* "View on GitHub" link pinned to the bottom of each project card */
+  .work-card .repo-link{
+    margin-top:auto;
+    font-family:var(--mono); font-size:11.5px;
+    color:var(--accent); text-decoration:none;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .work-card .repo-link:hover{ text-decoration:underline; }
 
   /* ---------- PAGE 2: HOW I WORK ---------- */
   /* Two columns: numbered workflow steps on the left, tool chips on the right */
@@ -254,45 +262,45 @@
   }
   .chip.accent{ border-color:var(--accent); color:var(--accent); }
 
-/* ---------- PAGE 3: NETWORKING & SYSTEMS ---------- */
-/* 2x2 grid of coursework cards, each holding a chip-list of specific skills */
-.course-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap:clamp(10px,1.6vw,18px);
-  flex:1; min-height:0;
-}
-.course-card{
-  border:1px solid var(--line-dim);
-  background:var(--ink-soft);
-  padding:clamp(12px,1.6vw,18px);
-  display:flex; flex-direction:column;
-  min-height:0;
-}
-.course-card .tag{
-  font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
-  color:var(--accent); margin-bottom:6px;
-}
-.course-card h3{
-  font-size:clamp(14px,1.7vw,16px);
-  color:var(--paper); font-weight:600; margin-bottom:8px;
-  line-height:1.2;
-}
-.course-card ul{
-  list-style:none;
-  display:flex; flex-wrap:wrap; gap:5px;
-  overflow:hidden;
-}
-.course-card li{
-  font-family:var(--mono); font-size:10px;
-  border:1px solid var(--line-dim);
-  color:var(--text-dim);
-  padding:2px 7px;
-  border-radius:2px;
-}
+  /* ---------- PAGE 3: NETWORKING & SYSTEMS ---------- */
+  /* 2x2 grid of coursework cards, each holding a chip-list of specific skills */
+  .course-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap:clamp(10px,1.6vw,18px);
+    flex:1; min-height:0;
+  }
+  .course-card{
+    border:1px solid var(--line-dim);
+    background:var(--ink-soft);
+    padding:clamp(12px,1.6vw,18px);
+    display:flex; flex-direction:column;
+    min-height:0;
+  }
+  .course-card .tag{
+    font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+    color:var(--accent); margin-bottom:6px;
+  }
+  .course-card h3{
+    font-size:clamp(14px,1.7vw,16px);
+    color:var(--paper); font-weight:600; margin-bottom:8px;
+    line-height:1.2;
+  }
+  .course-card ul{
+    list-style:none;
+    display:flex; flex-wrap:wrap; gap:5px;
+    overflow:hidden;
+  }
+  .course-card li{
+    font-family:var(--mono); font-size:10px;
+    border:1px solid var(--line-dim);
+    color:var(--text-dim);
+    padding:2px 7px;
+    border-radius:2px;
+  }
 
-  /* ---------- PAGE 3: TECH STACK ---------- */
+  /* ---------- PAGE 4: TECH STACK ---------- */
   /* Grid of icon tiles — 5 across so ten icons fit one screen */
   .icon-grid{
     display:grid;
@@ -313,8 +321,8 @@
     font-family:var(--mono); font-size:11px; color:var(--text-dim); text-align:center;
   }
 
-  /* ---------- PAGE 4: REACH ME ---------- */
-  #page-4{ justify-content:center; }
+  /* ---------- PAGE 5: REACH ME ---------- */
+  #page-5{ justify-content:center; }
   .reach-wrap{ max-width:640px; }
   .reach-wrap h1{
     font-family:var(--mono); font-weight:600;
@@ -332,30 +340,21 @@
   .reach-note{ margin-top:22px; font-size:12px; color:var(--text-dim); font-family:var(--mono); }
 
   /* ---------- PAGER ---------- */
-  /* Bottom-center bar: prev/next arrows + page dots */
+  /* Bottom-center bar: just the page dots now */
   .pager{
     position:absolute; bottom:20px; left:0; right:0;
     display:flex; align-items:center; justify-content:center;
     gap:18px; z-index:10;
     font-family:var(--mono);
   }
-  .nav-btn{
-    width:34px; height:34px;
-    border:1px solid var(--line);
-    background:transparent; color:var(--paper);
-    cursor:pointer; font-size:15px;
-    display:flex; align-items:center; justify-content:center;
-    transition:background .2s, color .2s;
-  }
-  .nav-btn:hover{ background:var(--accent); color:var(--ink); border-color:var(--accent); }
-  .nav-btn:disabled{ opacity:.25; cursor:default; }
-  .nav-btn:disabled:hover{ background:transparent; color:var(--paper); border-color:var(--line); }
-  .dots{ display:flex; gap:9px; }
+  .dots{ display:flex; gap:10px; }
   .dot{
-    width:8px; height:8px; border-radius:50%;
+    width:9px; height:9px; border-radius:50%;
     border:1px solid var(--line);
     background:transparent; cursor:pointer; padding:0;
+    transition:background .2s, border-color .2s;
   }
+  .dot:hover{ border-color:var(--accent); }
   .dot.active{ background:var(--accent); border-color:var(--accent); }
   /* "SHT 01/04" label in the bottom-right corner, like a schematic sheet number */
   .sheet-label{
@@ -401,6 +400,7 @@
     .work-grid{ grid-template-columns:1fr; overflow-y:auto; }
     .stack-cols{ grid-template-columns:1fr; overflow-y:auto; }
     .icon-grid{ grid-template-columns: repeat(3, 1fr); overflow-y:auto; }
+    .course-grid{ grid-template-columns:1fr; overflow-y:auto; }
     .page{ padding:22px 20px 84px; }
     .sheet-label{ display:none; }
   }
