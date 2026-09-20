@@ -13,8 +13,6 @@
     dotsWrap.appendChild(d);
   });
   const dots = dotsWrap.querySelectorAll('.dot');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
   const sheetLabel = document.getElementById('sheetLabel');
   const overlay = document.getElementById('loadingOverlay');
   const loaderLabel = document.getElementById('loaderLabel');
@@ -24,7 +22,7 @@
   // Zero-pad page numbers for the "SHT 01/04" label
   function pad(n){ return String(n).padStart(2,'0'); }
 
-  // Sync the DOM (active page, active dot, button states, sheet label)
+  // Sync the DOM (active page, active dot, sheet label)
   // with whatever `current` is set to
   function render(){
     pages.forEach((p, i) => {
@@ -32,8 +30,6 @@
       if(i === current) p.classList.add('active');
     });
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === total - 1;
     sheetLabel.textContent = 'SHT ' + pad(current+1) + '/' + pad(total);
   }
 
@@ -62,10 +58,7 @@
     }, 220);
   }
 
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
-
-  // Left/right arrow keys move between pages
+  // Left/right arrow keys still move between pages
   document.addEventListener('keydown', (e) => {
     if(e.key === 'ArrowRight') goTo(current + 1);
     if(e.key === 'ArrowLeft') goTo(current - 1);
