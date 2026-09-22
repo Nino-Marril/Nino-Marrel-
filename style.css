@@ -170,52 +170,52 @@
   }
   .title-block p{ color:var(--text-dim); font-size:14px; margin-top:6px; max-width:60ch;}
 
-  /* 2x2 grid of project cards */
+  /* 5x2 grid of project cards — 9 total, sized to still fit one screen */
   .work-grid{
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 1fr;
-    gap:clamp(12px,2vw,20px);
+    gap:clamp(7px,1.1vw,12px);
     flex:1;
     min-height:0;
   }
   .work-card{
     border:1px solid var(--line-dim);
     background:var(--ink-soft);
-    padding:clamp(14px,1.8vw,20px);
+    padding:clamp(8px,1vw,11px);
     display:flex; flex-direction:column;
     min-height:0;
     position:relative;
   }
   .work-card .tag{
-    font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
-    color:var(--accent); margin-bottom:6px;
+    font-family:var(--mono); font-size:7.5px; letter-spacing:.06em;
+    color:var(--accent); margin-bottom:3px;
   }
   .work-card h3{
-    font-size:clamp(15px,1.9vw,18px);
-    color:var(--paper); font-weight:600; margin-bottom:5px;
-    line-height:1.2;
+    font-size:clamp(11.5px,1.25vw,13px);
+    color:var(--paper); font-weight:600; margin-bottom:3px;
+    line-height:1.12;
   }
   .work-card p{
-    font-size:12.5px; color:var(--text-dim); line-height:1.42;
-    margin-bottom:8px;
+    font-size:9.5px; color:var(--text-dim); line-height:1.3;
+    margin-bottom:5px;
   }
   .work-card ul{
     list-style:none;
-    display:flex; flex-wrap:wrap; gap:5px;
-    margin-bottom:10px;
+    display:flex; flex-wrap:wrap; gap:3px;
+    margin-bottom:6px;
   }
   .work-card li{
-    font-family:var(--mono); font-size:10px;
+    font-family:var(--mono); font-size:8px;
     border:1px solid var(--line-dim);
     color:var(--text-dim);
-    padding:2px 7px;
+    padding:1px 4px;
     border-radius:2px;
   }
   /* "View on GitHub" link pinned to the bottom of each project card */
   .work-card .repo-link{
     margin-top:auto;
-    font-family:var(--mono); font-size:11px;
+    font-family:var(--mono); font-size:8.5px;
     color:var(--accent); text-decoration:none;
     display:inline-flex; align-items:center; gap:6px;
   }
@@ -404,7 +404,7 @@
      instead of forcing everything onto one screen */
   @media (max-width:760px){
     .cover-grid{ grid-template-columns:1fr; text-align:left; }
-    .work-grid{ grid-template-columns:1fr; overflow-y:auto; }
+    .work-grid{ grid-template-columns:1fr; grid-template-rows:none; overflow-y:auto; }
     .stack-cols{ grid-template-columns:1fr; overflow-y:auto; }
     .icon-grid{ grid-template-columns: repeat(3, 1fr); overflow-y:auto; }
     .course-grid{ grid-template-columns:1fr; overflow-y:auto; }
